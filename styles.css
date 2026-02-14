@@ -28,4 +28,69 @@ select { padding: .25rem .5rem; }
   main { grid-template-columns: 1.2fr 1fr; }
   #rubricPanel { order: 3; }
   #logPanel { order: 4; }
+/* Panel grid container (wraps contentPanel and speech input side-by-side) */
+.panel-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 1rem;
+  align-items: start;
+  margin-top: 1rem;
+}
+.speech-input-panel {
+  border: 1px solid #eee;
+  border-radius: 8px;
+  padding: 1rem;
+  background: #fff;
+}
+.speech-input-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: .5rem;
+}
+.speech-input-group {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: .5rem;
+}
+#speechInput {
+  width: 100%;
+  min-height: 120px;
+  resize: vertical;
+}
+.input-controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.btn {
+  padding: .5rem 1rem;
+}
+.counter {
+  font-family: monospace;
+  font-size: .9em;
+  color: #555;
+}
+.result-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: .75rem;
+}
+.result-panel {
+  background: #f9f9f9;
+  border: 1px solid #eee;
+  border-radius: 6px;
+  padding: .5rem;
+}
+.result-content {
+  white-space: pre-wrap;
+}
+@media (max-width: 900px) {
+  .panel-grid {
+    grid-template-columns: 1fr;
+  }
+  .result-panels {
+    grid-template-columns: 1fr;
+  }
+}
 }
