@@ -37,6 +37,43 @@
     <section id="contentPanel">
       <div id="contentText" class="content-text"></div>
     </section>
+<div class="panel-grid" id="panelGrid">
+  <section id="contentPanel" aria-label="Current segment content">
+    <div id="contentText" class="content-text"></div>
+  </section>
+
+  <section id="speechInputPanel" aria-label="Speech input and bot response" class="speech-input-panel">
+    <div class="speech-input-header">
+      <h3>Speech Input & Bot Response</h3>
+      <span class="live-label" id="liveLabel">Current Speaker: <strong>Awaiting turn</strong></span>
+    </div>
+
+    <div class="speech-input-group">
+      <textarea id="speechInput" placeholder="Paste Natali's or D'Angelo's speech here..." rows="4" maxlength="2000"></textarea>
+      <div class="input-controls">
+        <button id="submitSpeech" class="btn">Submit Speech</button>
+        <span id="speechCounter" class="counter">0 / 2000 chars</span>
+      </div>
+    </div>
+
+    <div class="result-panels">
+      <div class="result-panel" id="studentSpeechPanel">
+        <h4>Student Speech</h4>
+        <div id="studentSpeech" class="result-content"></div>
+      </div>
+
+      <div class="result-panel" id="botRebuttalPanel">
+        <h4>Bot Rebuttal (Opposing Side)</h4>
+        <div id="botRebuttal" class="result-content"></div>
+      </div>
+
+      <div class="result-panel" id="synthesisPanel">
+        <h4>Synthesis</h4>
+        <div id="synthesis" class="result-content"></div>
+      </div>
+    </div>
+  </section>
+</div>
 
     <section id="rubricPanel">
       <h3>Rubric Feedback</h3>
