@@ -1,0 +1,14 @@
+{
+  "class": "Practice Debate – Natali & D’Angelo",
+  "session": "Starter",
+  "segments": [
+    { "name": "Affirmative Opening", "minutes": 5, "side": "affirmative", "type": "opening" },
+    { "name": "Negative Opening", "minutes": 5, "side": "negative", "type": "opening" },
+    { "name": "Crossfire", "minutes": 3, "type": "crossfire" },
+    { "name": "Affirmative Rebuttal", "minutes": 4, "side": "affirmative", "type": "rebuttal" },
+    { "name": "Negative Rebuttal", "minutes": 4, "side": "negative", "type": "rebuttal" },
+    { "name": "Moderator Questions", "minutes": 3, "type": "moderator" },
+    { "name": "Affirmative Closing", "minutes": 3, "side": "affirmative", "type": "closing" },
+    { "name": "Negative Closing", "minutes": 3, "side": "negative", "type": "closing" }
+  ]
+}

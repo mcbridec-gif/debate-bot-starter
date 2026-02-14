@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Debate Practice Bot - Starter</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+    <h1>Debate Practice Bot</h1>
+    <p>Resolution: Freedom of speech should be limited when it threatens the functioning of a representative government.</p>
+  </header>
+
+  <main id="app">
+    <section id="controls">
+      <div>
+        <label for="side">Side:</label>
+        <select id="side">
+          <option value="affirmative">Affirmative</option>
+          <option value="negative">Negative</option>
+        </select>
+      </div>
+      <div>
+        <button id="startBtn">Start Session</button>
+        <button id="resetBtn">Reset</button>
+        <button id="switchBtn" title="Switch side mid-session">Switch Side</button>
+      </div>
+    </section>
+
+    <section id="timerPanel" aria-label="Timer and segment info">
+      <div id="segmentName" class="segment-name">Waiting to start...</div>
+      <div id="timeLeft" class="time">00:00</div>
+      <div id="progress" class="progress" aria-valuemin="0" aria-valuemax="100" role="progressbar"></div>
+    </section>
+
+    <section id="contentPanel">
+      <div id="contentText" class="content-text"></div>
+    </section>
+
+    <section id="rubricPanel">
+      <h3>Rubric Feedback</h3>
+      <ul id="rubricList"></ul>
+    </section>
+
+    <section id="logPanel" aria-label="Session log">
+      <h3>Session Log</h3>
+      <pre id="log"></pre>
+    </section>
+  </main>
+
+  <footer>
+    <p>Built for classroom debate practice. Edits to prompts are saved to your browser's local storage.</p>
+  </footer>
+
+  <script src="app.js"></script>
+</body>
+</html>

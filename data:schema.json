@@ -1,0 +1,22 @@
+{
+  "classId": "string",
+  "sessionId": "string",
+  "segments": [
+    {
+      "name": "string",
+      "side": "affirmative|negative|bot",
+      "type": "opening|crossfire|rebuttal|moderator|closing",
+      "duration": "number",
+      "studentInput": "string",
+      "botRebuttal": "string",
+      "synthesis": "string",
+      "scores": {
+        "Rebuttals": "number",
+        "Persuasiveness": "number",
+        "Knowledge": "number",
+        "Conduct": "number"
+      },
+      "timestamp": "string"
+    }
+  ]
+}
