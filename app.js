@@ -151,3 +151,73 @@ function init() {
 }
 
 init();
+// NEW: Speech input handling
+const speechInputEl = document.getElementById("speechInput");
+const submitSpeechBtn = document.getElementById("submitSpeech");
+const studentSpeechEl = document.getElementById("studentSpeech");
+const botRebuttalEl = document.getElementById("botRebuttal");
+const synthesisEl = document.getElementById("synthesis");
+const speechCounterEl = document.getElementById("speechCounter");
+const liveLabelEl = document.getElementById("liveLabel");
+
+// Update counter as user types
+speechInputEl.addEventListener("input", () => {
+  const val = speechInputEl.value || "";
+  speechCounterEl.textContent = `${val.length} / 2000 chars`;
+});
+
+// Placeholder bot response logic (replace with your real bot generator)
+function generateBotResponse(verbatim, segment) {
+  // Replace with actual prompts.json-based logic or API call
+  const rebuttal = `Counterpoints to your speech:
+- Point A addressing "${verbatim.slice(0, 60)}..."
+- Point B addressing a common counterargument
+- Point C addressing evidentiary concerns.`;
+
+  const synthesis = `This rebuttal matters to the audience because it clarifies trade-offs and demonstrates how the opposing view could affect governance within the framework of the resolution.`;
+
+  return { rebuttal, synthesis };
+}
+
+submitSpeechBtn.addEventListener("click", () => {
+  const verbatim = (speechInputEl.value || "").trim();
+  if (!verbatim) return; // ignore empty submissions
+
+  // Determine current segment context for labeling (simplified)
+  const segment = (SECTIONS[currentIndex] && SECTIONS[currentIndex].name) || "Unknown Segment";
+
+  // Display Student Speech (live on the current device)
+  studentSpeechEl.innerHTML = `<p>${escapeHtml(verbatim).replace(/\n/g, "<br>")}</p>`;
+
+  // Generate bot response (rebuttal + synthesis)
+  const { rebuttal, synthesis } = generateBotResponse(verbatim, segment);
+
+  botRebuttalEl.innerHTML = `<p>${escapeHtml(rebuttal).replace(/\n/g, "<br>")}</p>`;
+  synthesisEl.innerHTML = `<p>${escapeHtml(synthesis).replace(/\n/g, "<br>")}</p>`;
+
+  log(`Speech submitted for ${segment}. Bot rebuttal generated.`);
+
+  // Optional: clear input or keep for reference
+  // speechInputEl.value = "";
+  // speechCounterEl.textContent = "0 / 2000 chars";
+
+  // Disable briefly to pace
+  speechInputEl.disabled = true;
+  submitSpeechBtn.disabled = true;
+  setTimeout(() => {
+    speechInputEl.disabled = false;
+    submitSpeechBtn.disabled = false;
+  }, 800);
+});
+
+// HTML escaping helper (to prevent basic HTML injection in previews)
+function escapeHtml(text) {
+  const map = {
+    "&": "&amp;",
+    "<": "&lt;",
+    ">": "&gt;",
+    '"': "&quot;",
+    "'": "&#039;"
+  };
+  return text.replace(/[&<>"']/g, m => map[m]);
+}
